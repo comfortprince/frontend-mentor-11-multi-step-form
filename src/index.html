@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="./output.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
   
   <title>Frontend Mentor | Multi-step form</title>
 
@@ -15,113 +18,471 @@
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
-<body>
+<body class="h-screen bg-magnolia">
+  <main class="h-full relative md:grid place-items-center">
+     <!-- Mobile background image -->
+    <img class="md:hidden w-full absolute top-0 -z-10" src="..\assets\images\bg-sidebar-mobile.svg" alt="Mobile Background Image">
 
-  <!-- Sidebar start -->
+    <!-- Mobile Progress Indicator -->
+    <div id="mobile-progress-indicators-container" class="md:hidden flex justify-center gap-4 py-6">
+      <span data-index="0" data-indicator-status="active" class="inline-grid place-items-center w-8 h-8 border border-pastel-blue rounded-full font-medium text-white active-indicator:bg-light-blue active-indicator:text-black">
+        1
+      </span>
+      <span data-index="1" data-indicator-status="" class="inline-grid place-items-center w-8 h-8 border border-pastel-blue rounded-full font-medium text-white active-indicator:bg-light-blue active-indicator:text-black">
+        2
+      </span>
+      <span data-index="2" data-indicator-status="" class="inline-grid place-items-center w-8 h-8 border border-pastel-blue rounded-full font-medium text-white active-indicator:bg-light-blue active-indicator:text-black">
+        3
+      </span>
+      <span data-index="3" data-indicator-status="" class="inline-grid place-items-center w-8 h-8 border border-pastel-blue rounded-full font-medium text-white active-indicator:bg-light-blue active-indicator:text-black">
+        4
+      </span>
+    </div>
 
-  Step 1
-  Your info
+    <!-- Sidebar and form -->
+    <div class="bg-white mx-4 rounded-lg px-4 py-8 md:py-4 md:flex">
+      <!-- Sidebar -->
+      <div class="relative">
+        <img class="hidden md:inline" src="..\assets\images\bg-sidebar-desktop.svg" alt="Sidebar Background Image">
 
-  Step 2
-  Select plan
+        <!-- Desktop progress indicator -->
+        <div class="hidden md:block absolute top-0 w-full z-10 px-8 pt-8">
+          <ul class="flex flex-col gap-6">
+            <li class="flex items-center gap-4 text-sm">
+              <span data-index="0" data-indicator-status="active" class="inline-grid place-items-center w-8 h-8 border border-pastel-blue rounded-full font-medium text-white active-indicator:bg-light-blue active-indicator:text-black">
+                1
+              </span>
+              <div class="flex flex-col">
+                <span class="text-pastel-blue">
+                  STEP 1
+                </span>
+                <span class="font-medium text-white">
+                  YOUR INFO
+                </span>
+              </div>
+            </li>
+            <li class="flex items-center gap-4 text-sm">
+              <span data-index="1" data-indicator-status="" class="inline-grid place-items-center w-8 h-8 border border-pastel-blue rounded-full font-medium text-white active-indicator:bg-light-blue active-indicator:text-black">
+                2
+              </span>
+              <div class="flex flex-col">
+                <span class="text-pastel-blue">
+                  STEP 2
+                </span>
+                <span class="font-medium text-white">
+                  SELECT PLAN
+                </span>
+              </div>
+            </li>
+            <li class="flex items-center gap-4 text-sm">
+              <span data-index="2" data-indicator-status="" class="inline-grid place-items-center w-8 h-8 border border-pastel-blue rounded-full font-medium text-white active-indicator:bg-light-blue active-indicator:text-black">
+                3
+              </span>
+              <div class="flex flex-col">
+                <span class="text-pastel-blue">
+                  STEP 3
+                </span>
+                <span class="font-medium text-white">
+                  ADD ONS
+                </span>
+              </div>
+            </li>
+            <li class="flex items-center gap-4 text-sm">
+              <span data-index="3" data-indicator-status="" class="inline-grid place-items-center w-8 h-8 border border-pastel-blue rounded-full font-medium text-white active-indicator:bg-light-blue active-indicator:text-black">
+                4
+              </span>
+              <div class="flex flex-col">
+                <span class="text-pastel-blue">
+                  STEP 4
+                </span>
+                <span class="font-medium text-white">
+                  SUMMARY
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-  Step 3
-  Add-ons
+      <!-- Form -->
+      <div id="form-section" class="md:px-24 md:pt-12 md:w-40rem">
+        <div id="sections-wrapper" class="h-full md:relative">
+          <!-- Personal Info Section -->
+          <div data-index="0" data-form-sect-status="active" class="hidden active:block">
+            <h1 class="text-2xl md:text-3xl font-bold text-marine-blue text-marine-blue mb-2">
+              Personal info
+            </h1>
+            <p class="text-cool-gray mb-6">
+              Please provide your name, email address, and phone number.
+            </p>
 
-  Step 4
-  Summary
+            <form action="#!" class="flex flex-col gap-2" id="personal-info-form">
+              <div class="flex flex-col">
+                <div class="md:flex justify-between">
+                  <label for="name" class="text-sm text-marine-blue">Name</label>
+                  <div data-field-status="" class="hidden error:max-md:hidden error:block text-sm text-strawberry-red nameErrorTags">field cannot be empty</div>
+                </div>
+                <input data-field-status="" class="border border-light-gray text-marine-blue font-medium error:border-strawberry-red rounded p-2 focus:outline-none focus:border focus:border-purplish-blue" id="name" name="name" placeholder="e.g. Stephen King">
+                <div data-field-status="" class="hidden error:md:hidden error:block text-sm text-strawberry-red nameErrorTags">field cannot be empty</div>
+              </div>
+              <div class="flex flex-col">
+                <div class="md:flex justify-between">
+                  <label for="email" class="text-sm text-marine-blue">Email Address</label>
+                  <div data-field-status="" class="hidden error:max-md:hidden error:block text-sm text-strawberry-red emailErrorTags">field cannot be empty</div>
+                </div>
+                <input data-field-status="" class="border border-light-gray text-marine-blue font-medium error:border-strawberry-red rounded p-2 focus:outline-none focus:border focus:border-purplish-blue" id="email" name="email" placeholder="e.g. stephenking@lorem.com">
+                <div data-field-status="" class="hidden error:md:hidden error:block text-sm text-strawberry-red emailErrorTags">field cannot be empty</div>
+              </div>
+              <div class="flex flex-col">
+                <div class="md:flex justify-between">
+                  <label for="email" class="text-sm text-marine-blue">Email Address</label>
+                  <div data-field-status="" class="hidden error:max-md:hidden error:block text-sm text-strawberry-red phoneNumberErrorTags">field cannot be empty</div>
+                </div>
+                <input data-field-status="" class="border border-light-gray text-marine-blue font-medium error:border-strawberry-red rounded p-2 focus:outline-none focus:border focus:border-purplish-blue" id="phoneNumber" name="phoneNumber" placeholder="e.g. +1 234 567 890">
+                <div data-field-status="" class="hidden error:md:hidden error:block text-sm text-strawberry-red phoneNumberErrorTags">field cannot be empty</div>
+              </div>
+            </form>
+          </div>
 
-  <!-- Sidebar end -->
+          <!-- Available Plans Section -->
+          <div data-index="1" data-form-sect-status="" class="hidden active:block">
+            <h1 class="text-2xl md:text-3xl font-bold text-marine-blue text-marine-blue mb-2">
+              Select Your Plan
+            </h1>
+            <p class="text-cool-gray mb-6">
+              You have the option of monthly or yearly billing.
+            </p>
 
-  <!-- Step 1 start -->
+            <div class="flex flex-col gap-4">
+              <!-- Monthly Options -->
+              <div id="monthly-options" data-option-status="active" class="hidden option-active:flex max-md:flex-col gap-4">
+                <div data-option-status="" data-option-id="1" class="md:w-1/3 flex md:flex-col gap-6 justify-start md:justify-between p-4 border border-light-gray option-active:bg-magnolia option-active:border-purplish-blue rounded-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><g fill="none" fill-rule="evenodd"><circle cx="20" cy="20" r="20" fill="#FFAF7E"/><path fill="#FFF" fill-rule="nonzero" d="M24.995 18.005h-3.998v5.998h-2v-5.998H15a1 1 0 0 0-1 1V29a1 1 0 0 0 1 1h9.995a1 1 0 0 0 1-1v-9.995a1 1 0 0 0-1-1Zm-5.997 8.996h-2v-1.999h2v2Zm2-11.175a2.999 2.999 0 1 0-2 0v2.18h2v-2.18Z"/></g></svg>
 
-  Personal info
-  Please provide your name, email address, and phone number.
+                  <div>
+                    <div class="text-marine-blue font-bold">
+                      Arcade
+                    </div>
+                    <div class="text-cool-gray text-sm">
+                      $9/mon
+                    </div>
+                  </div>
+                </div>
+                <div data-option-status="" data-option-id="2" class="md:w-1/3 flex md:flex-col gap-6 justify-start md:justify-between p-4 border border-light-gray rounded-lg option-active:bg-magnolia option-active:border-purplish-blue">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><g fill="none" fill-rule="evenodd"><circle cx="20" cy="20" r="20" fill="#F9818E"/><path fill="#FFF" fill-rule="nonzero" d="M25.057 15H14.944C12.212 15 10 17.03 10 19.885c0 2.857 2.212 4.936 4.944 4.936h10.113c2.733 0 4.943-2.08 4.943-4.936S27.79 15 25.057 15ZM17.5 20.388c0 .12-.108.237-.234.237h-1.552v1.569c0 .126-.138.217-.259.217H14.5c-.118 0-.213-.086-.213-.203v-1.583h-1.569c-.126 0-.217-.139-.217-.26v-.956c0-.117.086-.213.202-.213h1.584v-1.554c0-.125.082-.231.203-.231h.989c.12 0 .236.108.236.234v1.551h1.555c.125 0 .231.083.231.204v.988Zm5.347.393a.862.862 0 0 1-.869-.855c0-.472.39-.856.869-.856.481 0 .87.384.87.856 0 .471-.389.855-.87.855Zm1.9 1.866a.86.86 0 0 1-.87-.852.86.86 0 0 1 .87-.855c.48 0 .87.38.87.855a.86.86 0 0 1-.87.852Zm0-3.736a.862.862 0 0 1-.87-.854c0-.472.39-.856.87-.856s.87.384.87.856a.862.862 0 0 1-.87.854Zm1.899 1.87a.862.862 0 0 1-.868-.855c0-.472.389-.856.868-.856s.868.384.868.856a.862.862 0 0 1-.868.855Z"/></g></svg>
 
-  Name
-  e.g. Stephen King
+                  <div>
+                    <div class="text-marine-blue font-bold">
+                      Advanced
+                    </div>
+                    <div class="text-cool-gray text-sm">
+                      $12/mon
+                    </div>
+                  </div>
+                </div>
+                <div data-option-status="" data-option-id="3" class="md:w-1/3 flex md:flex-col gap-6 justify-start md:justify-between p-4 border border-light-gray rounded-lg option-active:bg-magnolia option-active:border-purplish-blue">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><g fill="none" fill-rule="evenodd"><circle cx="20" cy="20" r="20" fill="#483EFF"/><path fill="#FFF" fill-rule="nonzero" d="M26.666 13H13.334A3.333 3.333 0 0 0 10 16.333v7.193a3.447 3.447 0 0 0 2.14 3.24c1.238.5 2.656.182 3.56-.8L18.52 23h2.96l2.82 2.966a3.2 3.2 0 0 0 3.56.8 3.447 3.447 0 0 0 2.14-3.24v-7.193A3.333 3.333 0 0 0 26.666 13Zm-9.333 6H16v1.333a.667.667 0 0 1-1.333 0V19h-1.333a.667.667 0 0 1 0-1.334h1.333v-1.333a.667.667 0 1 1 1.333 0v1.333h1.333a.667.667 0 1 1 0 1.334Zm7.333 2a2.667 2.667 0 1 1 0-5.333 2.667 2.667 0 0 1 0 5.333ZM26 18.333a1.333 1.333 0 1 1-2.667 0 1.333 1.333 0 0 1 2.667 0Z"/></g></svg>
 
-  Email Address
-  e.g. stephenking@lorem.com
+                  <div>
+                    <div class="text-marine-blue font-bold">
+                      Pro
+                    </div>
+                    <div class="text-cool-gray text-sm">
+                      $15/mon
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-  Phone Number
-  e.g. +1 234 567 890
+              <!-- Yearly Options -->
+              <div id="yearly-options" data-option-status="" class="hidden option-active:flex max-md:flex-col gap-4">
+                <div data-option-status="" data-option-id="4" class="md:w-1/3 flex md:flex-col gap-6 justify-start md:justify-between p-4 border border-light-gray rounded-lg option-active:bg-magnolia option-active:border-purplish-blue">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><g fill="none" fill-rule="evenodd"><circle cx="20" cy="20" r="20" fill="#FFAF7E"/><path fill="#FFF" fill-rule="nonzero" d="M24.995 18.005h-3.998v5.998h-2v-5.998H15a1 1 0 0 0-1 1V29a1 1 0 0 0 1 1h9.995a1 1 0 0 0 1-1v-9.995a1 1 0 0 0-1-1Zm-5.997 8.996h-2v-1.999h2v2Zm2-11.175a2.999 2.999 0 1 0-2 0v2.18h2v-2.18Z"/></g></svg>
 
-  Next Step
+                  <div>
+                    <div class="text-marine-blue font-bold">
+                      Arcade
+                    </div>
+                    <div class="text-cool-gray text-sm">
+                      $90/yr
+                    </div>
+                    <div class="text-marine-blue text-sm">
+                      2 months free
+                    </div>
+                  </div>
+                </div>
+                <div data-option-status="" data-option-id="5" class="md:w-1/3 flex md:flex-col gap-6 justify-start md:justify-between p-4 border border-light-gray rounded-lg option-active:bg-magnolia option-active:border-purplish-blue">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><g fill="none" fill-rule="evenodd"><circle cx="20" cy="20" r="20" fill="#F9818E"/><path fill="#FFF" fill-rule="nonzero" d="M25.057 15H14.944C12.212 15 10 17.03 10 19.885c0 2.857 2.212 4.936 4.944 4.936h10.113c2.733 0 4.943-2.08 4.943-4.936S27.79 15 25.057 15ZM17.5 20.388c0 .12-.108.237-.234.237h-1.552v1.569c0 .126-.138.217-.259.217H14.5c-.118 0-.213-.086-.213-.203v-1.583h-1.569c-.126 0-.217-.139-.217-.26v-.956c0-.117.086-.213.202-.213h1.584v-1.554c0-.125.082-.231.203-.231h.989c.12 0 .236.108.236.234v1.551h1.555c.125 0 .231.083.231.204v.988Zm5.347.393a.862.862 0 0 1-.869-.855c0-.472.39-.856.869-.856.481 0 .87.384.87.856 0 .471-.389.855-.87.855Zm1.9 1.866a.86.86 0 0 1-.87-.852.86.86 0 0 1 .87-.855c.48 0 .87.38.87.855a.86.86 0 0 1-.87.852Zm0-3.736a.862.862 0 0 1-.87-.854c0-.472.39-.856.87-.856s.87.384.87.856a.862.862 0 0 1-.87.854Zm1.899 1.87a.862.862 0 0 1-.868-.855c0-.472.389-.856.868-.856s.868.384.868.856a.862.862 0 0 1-.868.855Z"/></g></svg>
 
-  <!-- Step 1 end -->
+                  <div>
+                    <div class="text-marine-blue font-bold">
+                      Advanced
+                    </div>
+                    <div class="text-cool-gray text-sm">
+                      $120/yr
+                    </div>
+                    <div class="text-marine-blue text-sm">
+                      2 months free
+                    </div>
+                  </div>
+                </div>
+                <div data-option-status="" data-option-id="6" class="md:w-1/3 flex md:flex-col gap-6 justify-start md:justify-between p-4 border border-light-gray rounded-lg option-active:bg-magnolia option-active:border-purplish-blue">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><g fill="none" fill-rule="evenodd"><circle cx="20" cy="20" r="20" fill="#483EFF"/><path fill="#FFF" fill-rule="nonzero" d="M26.666 13H13.334A3.333 3.333 0 0 0 10 16.333v7.193a3.447 3.447 0 0 0 2.14 3.24c1.238.5 2.656.182 3.56-.8L18.52 23h2.96l2.82 2.966a3.2 3.2 0 0 0 3.56.8 3.447 3.447 0 0 0 2.14-3.24v-7.193A3.333 3.333 0 0 0 26.666 13Zm-9.333 6H16v1.333a.667.667 0 0 1-1.333 0V19h-1.333a.667.667 0 0 1 0-1.334h1.333v-1.333a.667.667 0 1 1 1.333 0v1.333h1.333a.667.667 0 1 1 0 1.334Zm7.333 2a2.667 2.667 0 1 1 0-5.333 2.667 2.667 0 0 1 0 5.333ZM26 18.333a1.333 1.333 0 1 1-2.667 0 1.333 1.333 0 0 1 2.667 0Z"/></g></svg>
 
-  <!-- Step 2 start -->
+                  <div>
+                    <div class="text-marine-blue font-bold">
+                      Pro
+                    </div>
+                    <div class="text-cool-gray text-sm">
+                      $150/yr
+                    </div>
+                    <div class="text-marine-blue text-sm">
+                      2 months free
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-  Select your plan
-  You have the option of monthly or yearly billing.
+              <div id="optionErrorTag" class="text-strawberry-red text-center"></div>
 
-  Arcade
-  $9/mo
+              <!-- Options Togglers -->
+              <div class="text-sm bg-alabaster rounded-lg h-12 flex gap-4 justify-center items-center">
+                <span>
+                  Monthly
+                </span>
 
-  Advanced
-  $12/mo
+                <span class="bg-marine-blue inline-flex items-center p-1 rounded-full gap-2">
+                  <span id="monthly-options-toggler" data-option-status="active" class="opacity-0 option-active:opacity-100 inline-block w-3 h-3 bg-white rounded-full"></span>
+                  <span id="yearly-options-toggler" data-option-status="" class="opacity-0 option-active:opacity-100 inline-block w-3 h-3 bg-white rounded-full"></span>
+                </span>
 
-  Pro
-  $15/mo
+                <span>
+                  Yearly
+                </span>
+              </div>
+            </div>
+          </div>
 
-  Monthly
-  Yearly
+          <!-- Add Ons Section -->
+          <div data-index="2" data-form-sect-status="" class="hidden active:block">
+            <h1 class="text-2xl md:text-3xl font-bold text-marine-blue text-marine-blue mb-2">
+              Pick add-ons
+            </h1>
+            <p class="text-cool-gray mb-6">
+              Add-ons help enhance your gaming experience.
+            </p>
 
-  Go Back
-  Next Step
+            <div class="">
+              <!-- Monthly Add-ons -->
+              <div id="monthlyAddonsWrapper" data-option-status="active" class="hidden option-active:flex flex-col gap-4">
+                <div data-addon-status="" data-addon-id="1" class="flex items-center cursor-pointer p-4 rounded-md gap-4 border border border-light-gray hover:border-purplish-blue addon-active:border-purplish-blue addon-active:bg-magnolia">
+                  <span data-addon-status="" class="border border-light-gray addon-active:bg-purplish-blue inline-grid place-items-center w-4 h-4 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9"><path fill="none" stroke="#FFF" stroke-width="2" d="m1 4 3.433 3.433L10.866 1"/></svg>
+                  </span>
+                  <div class="flex-grow">
+                    <span class="text-marine-blue font-medium">
+                      Online service
+                    </span>
+                    <div class="text-sm text-cool-gray font-medium flex-grow">
+                      Access to multiplayer games
+                    </div>
+                  </div>
+                  <div class="text-purplish-blue text-sm">
+                    +$1/mo
+                  </div>
+                </div>
 
-  <!-- Step 2 end -->
+                <div data-addon-status="" data-addon-id="2" class="flex items-center cursor-pointer p-4 rounded-md gap-4 border border border-light-gray hover:border-purplish-blue addon-active:border-purplish-blue addon-active:bg-magnolia">
+                  <span data-addon-status="" class="border border-light-gray addon-active:bg-purplish-blue inline-grid place-items-center w-4 h-4 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9"><path fill="none" stroke="#FFF" stroke-width="2" d="m1 4 3.433 3.433L10.866 1"/></svg>
+                  </span>
+                  <div class="flex-grow">
+                    <span class="text-marine-blue font-medium">
+                      Larger storage
+                    </span>
+                    <div class="text-sm text-cool-gray font-medium flex-grow">
+                      Extra 1TB of cloud save
+                    </div>
+                  </div>
+                  <div class="text-purplish-blue text-sm">
+                    +$2/mo
+                  </div>
+                </div>
 
-  <!-- Step 3 start -->
+                <div data-addon-status="" data-addon-id="3" class="flex items-center cursor-pointer p-4 rounded-md gap-4 border border border-light-gray hover:border-purplish-blue addon-active:border-purplish-blue addon-active:bg-magnolia">
+                  <span data-addon-status="" class="border border-light-gray addon-active:bg-purplish-blue inline-grid place-items-center w-4 h-4 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9"><path fill="none" stroke="#FFF" stroke-width="2" d="m1 4 3.433 3.433L10.866 1"/></svg>
+                  </span>
+                  <div class="flex-grow">
+                    <span class="text-marine-blue font-medium">
+                      Customizable Profile
+                    </span>
+                    <div class="text-sm text-cool-gray font-medium flex-grow">
+                      Custom theme on your profile
+                    </div>
+                  </div>
+                  <div class="text-purplish-blue text-sm">
+                    +$2/mo
+                  </div>
+                </div>
+              </div>
 
-  Pick add-ons
-  Add-ons help enhance your gaming experience.
+              <!-- Yearly Add-ons -->
+              <div id="yearlyAddonsWrapper" data-option-status="" class="hidden option-active:flex flex-col gap-4">
+                <div data-addon-status="" data-addon-id="4" class="flex items-center cursor-pointer p-4 rounded-md gap-4 border border border-light-gray hover:border-purplish-blue addon-active:border-purplish-blue addon-active:bg-magnolia">
+                  <span data-addon-status="" class="border border-light-gray addon-active:bg-purplish-blue inline-grid place-items-center w-4 h-4 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9"><path fill="none" stroke="#FFF" stroke-width="2" d="m1 4 3.433 3.433L10.866 1"/></svg>
+                  </span>
+                  <div class="flex-grow">
+                    <span class="text-marine-blue font-medium">
+                      Online service
+                    </span>
+                    <div class="text-sm text-cool-gray font-medium flex-grow">
+                      Access to multiplayer games
+                    </div>
+                  </div>
+                  <div class="text-purplish-blue text-sm">
+                    +$10/yr
+                  </div>
+                </div>
 
-  Online service
-  Access to multiplayer games
-  +$1/mo
+                <div data-addon-status="" data-addon-id="5" class="flex items-center cursor-pointer p-4 rounded-md gap-4 border border border-light-gray hover:border-purplish-blue addon-active:border-purplish-blue addon-active:bg-magnolia">
+                  <span data-addon-status="" class="border border-light-gray addon-active:bg-purplish-blue inline-grid place-items-center w-4 h-4 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9"><path fill="none" stroke="#FFF" stroke-width="2" d="m1 4 3.433 3.433L10.866 1"/></svg>
+                  </span>
+                  <div class="flex-grow">
+                    <span class="text-marine-blue font-medium">
+                      Larger storage
+                    </span>
+                    <div class="text-sm text-cool-gray font-medium flex-grow">
+                      Extra 1TB of cloud save
+                    </div>
+                  </div>
+                  <div class="text-purplish-blue text-sm">
+                    +$20/yr
+                  </div>
+                </div>
 
-  Larger storage
-  Extra 1TB of cloud save
-  +$2/mo
+                <div data-addon-status="" data-addon-id="6" class="flex items-center cursor-pointer p-4 rounded-md gap-4 border border border-light-gray hover:border-purplish-blue addon-active:border-purplish-blue addon-active:bg-magnolia">
+                  <span data-addon-status="" class="border border-light-gray addon-active:bg-purplish-blue inline-grid place-items-center w-4 h-4 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9"><path fill="none" stroke="#FFF" stroke-width="2" d="m1 4 3.433 3.433L10.866 1"/></svg>
+                  </span>
+                  <div class="flex-grow">
+                    <span class="text-marine-blue font-medium">
+                      Customizable Profile
+                    </span>
+                    <div class="text-sm text-cool-gray font-medium flex-grow">
+                      Custom theme on your profile
+                    </div>
+                  </div>
+                  <div class="text-purplish-blue text-sm">
+                    +$20/yr
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-  Customizable Profile
-  Custom theme on your profile
-  +$2/mo
+          <!-- Finishing Up Section -->
+          <div data-index="3" data-form-sect-status="" class="hidden active:block">
+            <h1 class="text-2xl md:text-3xl font-bold text-marine-blue text-marine-blue mb-2">
+              Finishing up
+            </h1>
+            <p class="text-cool-gray mb-6">
+              Double-check everything looks OK before confirming.
+            </p>
 
-  Go Back
-  Next Step
+            <div class="flex flex-col gap-4">
+              <!-- Options and Addons Summary -->
+              <div id="options-addons-summary" class="bg-magnolia px-4 rounded-lg">
+                <!-- Selected Option -->
+                <div class="text-sm flex items-center justify-between border-b border-b-light-gray py-4">
+                  <div class="flex flex-col justify-start">
+                    <span class="font-bold text-marine-blue">
+                      Arcade (Monthly)
+                    </span>
+                    <div>
+                      <button id="change-options-btn" class="text-cool-gray underline">
+                        Change
+                      </button>
+                    </div>
+                  </div>
+                  <div class="font-bold text-marine-blue">
+                    $90/yr
+                  </div>
+                </div>
+                
+                <!-- Addons -->
+                <div class="py-4 flex flex-col gap-4">
+                  <div class="text-sm flex justify-between">
+                    <div class="text-cool-gray">
+                      Online Service
+                    </div>
+                    <div class="text-sm text-marine-blue">
+                      +$10/yr
+                    </div>
+                  </div>
+                  <div class="text-sm flex justify-between">
+                    <div class="text-cool-gray">
+                      Larger Storage
+                    </div>
+                    <div class="text-sm text-marine-blue">
+                      +$20/yr
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-  <!-- Step 3 end -->
+              <!-- Total Cost -->
+              <div class="px-4">
+                <div class="text-sm flex justify-between">
+                  <div class="text-cool-gray">
+                    Total (per year)
+                  </div>
+                  <div class="text-lg font-bold text-purplish-blue">
+                    +$120/yr
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-  <!-- Step 4 start -->
+          <!-- Thank You Section -->
+          <div data-index="4" data-form-sect-status="" class="hidden active:flex flex-col items-center justify-center text-center gap-4 h-full">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><g fill="none"><circle cx="40" cy="40" r="40" fill="#F9818E"/><path fill="#E96170" d="M48.464 79.167c.768-.15 1.53-.321 2.288-.515a40.04 40.04 0 0 0 3.794-1.266 40.043 40.043 0 0 0 3.657-1.63 40.046 40.046 0 0 0 12.463-9.898A40.063 40.063 0 0 0 78.3 51.89c.338-1.117.627-2.249.867-3.391L55.374 24.698a21.6 21.6 0 0 0-15.332-6.365 21.629 21.629 0 0 0-15.344 6.365c-8.486 8.489-8.486 22.205 0 30.694l23.766 23.775Z"/><path fill="#FFF" d="M40.003 18.333a21.58 21.58 0 0 1 15.31 6.351c8.471 8.471 8.471 22.158 0 30.63-8.47 8.47-22.156 8.47-30.627 0-8.47-8.472-8.47-22.159 0-30.63a21.594 21.594 0 0 1 15.317-6.35Zm9.865 15c-.316.028-.622.15-.872.344l-12.168 9.13-5.641-5.642c-1.224-1.275-3.63 1.132-2.356 2.356l6.663 6.663c.56.56 1.539.63 2.173.156l13.326-9.995c1.122-.816.43-2.993-.956-3.013a1.666 1.666 0 0 0-.17 0Z"/></g></svg>
+            </div>
+            <div class="text-3xl font-bold">
+              Thank You!
+            </div>
+            <div class="text-cool-gray">
+              Thanks for confirming your subscription! We hope you have fun 
+              using our platform. If you ever need support, please feel free 
+              to email us at support@loremgaming.com.
+            </div>
+          </div>
 
-  Finishing up
-  Double-check everything looks OK before confirming.
+          <!-- Desktop Navigation Section -->
+          <div id="desktop-nav-section" class="hidden md:flex justify-between md:mt-4 lg:mt-0 lg:absolute left-0 bottom-0 w-full">
+            <button id="desktop-back-btn" class="invisible text-cool-gray font-medium">
+              Go Back
+            </button>
+            <button id="desktop-next-btn" class="bg-marine-blue py-2 px-8 text-white rounded-lg hover:bg-purplish-blue" form="personal-info-form">Next</button>
+            <button id="desktop-confirm-btn" class="hidden bg-marine-blue py-2 px-8 text-white rounded-lg hover:bg-purplish-blue" form="personal-info-form">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- Dynamically add subscription and add-on selections here -->
-
-  Total (per month/year)
-
-  Go Back
-  Confirm
-
-  <!-- Step 4 end -->
-
-  <!-- Step 5 start -->
-
-  Thank you!
-
-  Thanks for confirming your subscription! We hope you have fun 
-  using our platform. If you ever need support, please feel free 
-  to email us at support@loremgaming.com.
-
-  <!-- Step 5 end -->
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Comfort Prince</a>.
-  </div>
+    <!-- Mobile Navigation Section -->
+    <div id="mobile-nav-section" class="md:hidden absolute flex justify-between bottom-0 w-full bg-white py-4 px-4">
+      <button id="mobile-back-btn" class="invisible text-cool-gray font-medium">
+        Go Back
+      </button>
+      <button id="mobile-next-btn" class="bg-marine-blue py-2 px-8 text-white rounded-lg hover:bg-purplish-blue focus:outline-none" form="personal-info-form">Next</button>
+      <button id="mobile-confirm-btn" class="hidden bg-marine-blue py-2 px-8 text-white rounded-lg hover:bg-purplish-blue" form="personal-info-form">Confirm</button>
+    </div>
+  </main>
+  <script src="./new-new-index.js"></script>
 </body>
 </html>
