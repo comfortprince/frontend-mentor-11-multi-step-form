@@ -581,25 +581,12 @@ video {
   margin-right: 1rem;
 }
 
-.my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
 .mb-2 {
   margin-bottom: 0.5rem;
 }
 
 .mb-6 {
   margin-bottom: 1.5rem;
-}
-
-.mb-8 {
-  margin-bottom: 2rem;
-}
-
-.mb-12 {
-  margin-bottom: 3rem;
 }
 
 .inline-block {
@@ -634,10 +621,6 @@ video {
   height: 1rem;
 }
 
-.h-52 {
-  height: 13rem;
-}
-
 .h-8 {
   height: 2rem;
 }
@@ -670,10 +653,6 @@ video {
   flex-grow: 1;
 }
 
-.flex-grow-0 {
-  flex-grow: 0;
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
@@ -694,10 +673,6 @@ video {
   justify-content: flex-start;
 }
 
-.justify-end {
-  justify-content: flex-end;
-}
-
 .justify-center {
   justify-content: center;
 }
@@ -716,10 +691,6 @@ video {
 
 .gap-6 {
   gap: 1.5rem;
-}
-
-.overflow-hidden {
-  overflow: hidden;
 }
 
 .rounded {
@@ -756,16 +727,6 @@ video {
   border-color: hsl(228 100% 84% / var(--tw-border-opacity));
 }
 
-.border-purplish-blue {
-  --tw-border-opacity: 1;
-  border-color: hsl(243 100% 62% / var(--tw-border-opacity));
-}
-
-.border-b-cool-gray {
-  --tw-border-opacity: 1;
-  border-bottom-color: hsl(231 11% 63% / var(--tw-border-opacity));
-}
-
 .border-b-light-gray {
   --tw-border-opacity: 1;
   border-bottom-color: hsl(229 24% 87% / var(--tw-border-opacity));
@@ -786,34 +747,9 @@ video {
   background-color: hsl(213 96% 18% / var(--tw-bg-opacity));
 }
 
-.bg-purplish-blue {
-  --tw-bg-opacity: 1;
-  background-color: hsl(243 100% 62% / var(--tw-bg-opacity));
-}
-
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: hsl(0 0% 100% / var(--tw-bg-opacity));
-}
-
-.bg-light-blue {
-  --tw-bg-opacity: 1;
-  background-color: hsl(206 94% 87% / var(--tw-bg-opacity));
-}
-
-.bg-pastel-blue {
-  --tw-bg-opacity: 1;
-  background-color: hsl(228 100% 84% / var(--tw-bg-opacity));
-}
-
-.object-cover {
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.object-center {
-  -o-object-position: center;
-     object-position: center;
 }
 
 .p-1 {
@@ -858,20 +794,12 @@ video {
   padding-bottom: 2rem;
 }
 
-.pt-8 {
-  padding-top: 2rem;
-}
-
-.pb-2 {
-  padding-bottom: 0.5rem;
-}
-
-.pb-4 {
-  padding-bottom: 1rem;
-}
-
 .pb-12 {
   padding-bottom: 3rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
 }
 
 .text-center {
@@ -888,14 +816,14 @@ video {
   line-height: 2.25rem;
 }
 
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .font-bold {
@@ -995,14 +923,14 @@ body{
   border-color: hsl(243 100% 62% / var(--tw-border-opacity));
 }
 
-.addon-active\:bg-purplish-blue[data-addon-status="active"] {
-  --tw-bg-opacity: 1;
-  background-color: hsl(243 100% 62% / var(--tw-bg-opacity));
-}
-
 .addon-active\:bg-magnolia[data-addon-status="active"] {
   --tw-bg-opacity: 1;
   background-color: hsl(217 100% 97% / var(--tw-bg-opacity));
+}
+
+.addon-active\:bg-purplish-blue[data-addon-status="active"] {
+  --tw-bg-opacity: 1;
+  background-color: hsl(243 100% 62% / var(--tw-bg-opacity));
 }
 
 .error\:block[data-field-status="error"] {
@@ -1032,16 +960,6 @@ body{
   display: flex;
 }
 
-.active\:bg-light-blue[data-form-sect-status="active"] {
-  --tw-bg-opacity: 1;
-  background-color: hsl(206 94% 87% / var(--tw-bg-opacity));
-}
-
-.active\:text-black[data-form-sect-status="active"] {
-  --tw-text-opacity: 1;
-  color: hsl(0 0% 0% / var(--tw-text-opacity));
-}
-
 .option-active\:flex[data-option-status="active"] {
   display: flex;
 }
@@ -1061,21 +979,8 @@ body{
 }
 
 @media not all and (min-width: 768px) {
-  .max-md\:mx-4 {
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
-
-  .max-md\:hidden {
-    display: none;
-  }
-
   .max-md\:flex-col {
     flex-direction: column;
-  }
-
-  .max-md\:pb-8 {
-    padding-bottom: 2rem;
   }
 
   .error\:max-md\:hidden[data-field-status="error"] {
@@ -1128,11 +1033,6 @@ body{
     justify-content: space-between;
   }
 
-  .md\:px-12 {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-
   .md\:px-24 {
     padding-left: 6rem;
     padding-right: 6rem;
@@ -1164,10 +1064,5 @@ body{
 
   .lg\:mt-0 {
     margin-top: 0px;
-  }
-
-  .lg\:px-24 {
-    padding-left: 6rem;
-    padding-right: 6rem;
   }
 }
